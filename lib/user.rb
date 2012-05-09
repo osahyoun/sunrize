@@ -1,7 +1,8 @@
-require 'redis'
+require './lib/redis_connection'
 
 module Sunrize
   class User
+    include Sunrize::RedisConnection
 
     def initialize(username)
       @username = username
@@ -17,16 +18,12 @@ module Sunrize
 
     def load
       if exists?
-        data = @redis.hgetall key
+        data = redis.hgetall key
         data['courses'] = JSON.parse(data['courses'])
         data
       else
         not_found
       end
-    end
-
-    def redis
-      @redis ||= Redis.new
     end
 
     def exists?

@@ -1,4 +1,5 @@
 ENV['RACK_ENV'] = 'test'
+ENV["REDISTOGO_URL"] = 'redis://username:password@localhost:6379'
 
 require File.join(File.dirname(__FILE__), '..', '..', 'application.rb')
 

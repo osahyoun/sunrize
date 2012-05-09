@@ -1,6 +1,7 @@
 require 'faraday'
 require 'nokogiri'
 require './lib/user'
+require './lib/redis_connection'
 
 module Sunrize
 
@@ -8,6 +9,8 @@ module Sunrize
   end
 
   class Fetcher
+    include Sunrize::RedisConnection
+
     attr_reader :username, :url
 
     HOST = 'http://www.memrise.com'
@@ -73,9 +76,8 @@ module Sunrize
     end
 
     def save
-      @redis = Redis.new
       ATTRIBUTES.each do |a|
-        @redis.hset redis_key, a, send(a)
+        redis.hset redis_key, a, send(a)
       end
       self
     end

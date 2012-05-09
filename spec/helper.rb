@@ -2,6 +2,9 @@
 require 'redis'
 require 'webmock/rspec'
 
+ENV["REDISTOGO_URL"] = 'redis://username:password@localhost:6379'
+
+
 def stub_get(user)
   stub_request(:get, "http://www.memrise.com/user/#{user}/").
          with(:headers => {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).

@@ -156,13 +156,24 @@ div.codewrap {
   min-height: 30px;
   padding: 10px;
   margin-bottom: 10px;
+  margin-top: 20px;
   border: 1px solid #CCC;
-  width: 95%;
+  width: 500px;
   font-weight: bold;
   overflow: auto;
+  text-align: left;
 }
 
 
 #badge-wrapper {
   height: 304px;
+}
+
+div.buttons {
+  text-align: center;
+}
+
+div.footer {
+  margin-top: 50px;
+  padding: 10px;
 }

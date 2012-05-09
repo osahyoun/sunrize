@@ -4,11 +4,11 @@ Sunrize
 Simple Sinatra app which presents a [memrise](http://www.memrise.com) user with a JSON encoded representation of their account data (rank, points, total words learnt and so on). The app periodically visits memrise, keeping user data up-to-date.
 
 ## Getting Access
-Visit [sunrize.me](http://sunrize.me) and submit your memrise username. Sunrize will then cache your usage statistics. If you're a well behaved boy or girl, sunrize will keep your data up-to-date (still pending).
+Visit [sunrize.me](http://www.sunrize.me) and submit your memrise username. Sunrize will then cache your usage statistics. If you're a well behaved boy or girl, sunrize will keep your data up-to-date (still pending).
 
 Request your data with:
 
-    http://sunrize.me/user/your-user-name
+    http://www.sunrize.me/user/your-user-name
 
 And you'll get something back like this:
 
@@ -25,7 +25,7 @@ And you'll get something back like this:
 
 JSONP is supported, just pass `callback` in your query string:
 
-    http://sunrize.me/user/osahyoun?callback=blah
+    http://www.sunrize.me/user/osahyoun?callback=blah
 
 ## Source
 

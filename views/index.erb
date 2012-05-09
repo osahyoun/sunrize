@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="/application.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <script src="/application.js" type="text/javascript" charset="utf-8"></script>
+  <title>Sunrise - Get your Sumrise badges here!</title>
+</head>
+
+<body class='<%= @user ? 'blue' : '' %>'>
+  <div id='wrap' class=''>
+   <h1 id='logo'>
+    <a href='/'>
+      <img src='/images/logo.png' height='100px'/>
+    </a>
+   </h1>
+   <p class='sub'>Free <a href='http://www.memrise.com/'><span class='memrise'><em>mem</em>rise</span></a> badges, for all!</p>
+    <% unless @user %>
+   <div id="form">
+
+     <form action='/check_name' method='POST'>
+       <p class='note'>Just tell us your <span class='memrise'><em>mem</em>rise</span> username and press go</p>
+        <div class='input-wrap'>
+          <input class='username' type='text' name='username' value='' />
+        </div>
+        <input type='submit' value='GO!' />
+     </form>
+     <% if params[:s] == 'not_found' %>
+      <p>Sorry, we couldn't find you on Memrise. Check your username and try again!</p>
+     <% end %>
+     </div>
+     <% else %>
+     <div id='badge-wrapper'>
+     <script type="text/javascript" class='sunrize'>
+       Sunrize = {
+         user: '<%= params[:username] %>'
+       };
+
+       (function() {
+         var x = document.createElement('script');
+         x.src = 'http://sunrize.me/badge.js';
+         x.type = 'text/javascript';
+         x.async = 'true';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(x, s);
+       })();
+     </script>
+   </div>
+
+  <h2>Copy and paste this snippet onto your website</h2>
+  <code class='codewrap' style=''>
+  <pre class='code' style=''>
+  &lt;script class=&quot;sunrize&quot; type=&quot;text/javascript&quot;&gt;
+  Sunrize = {
+    user: '<%= params[:username] %>'
+  };
+
+  (function() {
+  var x = document.createElement(&#x27;script&#x27;);
+  x.src = &#x27;http://sunrize.me/badge.js&#x27;;
+  x.type = &#x27;text/javascript&#x27;;
+  x.async = &#x27;true&#x27;;
+  var s = document.getElementsByTagName(&#x27;script&#x27;)[0];
+  s.parentNode.insertBefore(x, s);
+  })();
+  &lt;/script&gt;
+  </pre>
+  </code>
+  <% end %>
+  </div>
+</body>
+</html>

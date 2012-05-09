@@ -38,6 +38,7 @@ span.memrise {
   width: 900px;
   margin: 70px auto 40px auto;
   text-align: center;
+  min-height: 500px;
 }
 
 h2 {
@@ -170,10 +171,23 @@ div.codewrap {
 }
 
 div.buttons {
-  text-align: center;
+  position: fixed;
+  width: 100px;
+  left: 100px;
+  top: 200px;
+}
+
+div.buttons span {
+  margin: 10px 0;
+  display: block;
+}
+
+div.buttons span.first {
 }
 
 div.footer {
-  margin-top: 50px;
   padding: 10px;
+  font-weight: bold;
+  margin: 0 auto;
+  width: 600px;
 }

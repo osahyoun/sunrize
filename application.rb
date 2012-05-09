@@ -3,6 +3,10 @@ require 'sinatra/jsonp'
 require './lib/user'
 require './lib/fetcher'
 
+configure(:development) do
+  ENV["REDISTOGO_URL"] = 'redis://username:password@localhost:6379'
+end
+
 get '/' do
   if params[:username]
     @user = Sunrize::User.find(params[:username])

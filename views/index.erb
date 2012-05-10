@@ -33,7 +33,7 @@
      </div>
      <% else %>
      <div id='badge-wrapper'>
-     <script type="text/javascript" class='sunrize'>
+     <script type="text/javascript" id='sunrize'>
        Sunrize = {
          user: '<%= params[:username] %>'
        };
@@ -52,7 +52,7 @@
   <h2>Copy and paste this snippet into your website</h2>
 <code class='codewrap' style=''>
 <pre class='code' style=''>
-&lt;script class=&quot;sunrize&quot; type=&quot;text/javascript&quot;&gt;
+&lt;script id=&quot;sunrize&quot; type=&quot;text/javascript&quot;&gt;
 Sunrize = {
   user: '<%= params[:username] %>'
 };
